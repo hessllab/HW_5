@@ -1,20 +1,22 @@
-### ITRDB Script for Any State
+# README
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+The attached script can be used to download Tree Ring Data from NOAA's Database. The users only needs to input the initials of the State that she wants to download. 
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
+## Requirements
+- Connection to internet. 
+- Instalation of Git Bash. 
+- Instalation of `wget`. 
+- Enough space to save files in the selected directory.
 
-_Hint:_
-Usage: bash state.sh state_abbrev  
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
- 
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
+## Usage
 
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
+To run the file the user should open the Bash terminal and input the following code
+```{Bash}
+bash state.sh $1
+```
+Where ```$1``` refers to the initial in lowercase letters of the State that is to be downloaded (e.g. ny for New York, or wv for West Virginia). 
 
+## Product
+ 1) The creation of a folder named after the initials of the state inputted. The folder will be located in the directory where the state.sh script is located. 
+2) Donwloading all the ```.rwl``` files with data from that State, except files containing the word "noaa".
+3) A text file named after the state abbreviation followed by "sites". The text file will list all the downloaded file names without their extention and a line that includes (but not in every case) the site where the data was collected.  
