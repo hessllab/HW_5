@@ -1,6 +1,6 @@
 # README
 
-The attached script can be used to download Tree Ring Data from NOAA's Database. The users only needs to input the initials of the State that she wants to download. 
+The attached script "state.sh" can be used to download Tree Ring Data from NOAA's Database. The users only needs to input the initials of the State that she wants to download. 
 
 ## Requirements
 - Connection to internet. 
