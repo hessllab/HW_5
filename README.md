@@ -7,7 +7,7 @@ Objective: Write a bash script titled state.sh that:
 2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
 
 _Hint:_
-Usage: bash state.sh state_abbrev
+Usage: bash state.sh state_abbrev  
 Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
  
 Follow the following principles:
