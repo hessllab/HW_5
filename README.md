@@ -1,20 +1,77 @@
-### ITRDB Script for Any State
+# Script Title
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+This script downloads tree ring data for specific states in the USA
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
+## Getting Started
 
-_Hint:_
-Usage: bash state.sh state_abbrev  
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
- 
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
+### Prerequisites
 
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+
+## Authors
+
+* **Tobi Ore** - *Initial work* - [tobi-ore](https://github.com/tobi-ore)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Dr Amy Hessl
