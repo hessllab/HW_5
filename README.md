@@ -1,20 +1,25 @@
 ### ITRDB Script for Any State
+Zack Grzywacz
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+For this script, the user must add the state abbreviation after typing "bash state.sh". This makes the state abbreviation take the spot of "$1" in the code. We will start by making and entering a new directory, so that the paths are absolute and can be replicated anywhere.
+```
+# Download tree ring data for any US State  
+# Usage: bash state.sh state_abbreviation  
+mkdir "$1"_trees
+cd "$1"_trees
+```
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
+Next, we will gather the data with wget. This uses two wget requests because some state codes have an extra letter at the end - yet we do not want the files that contain "-noaa". So we use ? wildcards instead of *.
+```
+wget -r -e robots=off -A "$1"???.rwl -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A "$1"????.rwl -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+```
 
-_Hint:_
-Usage: bash state.sh state_abbrev
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
- 
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
-
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
-
+Now, we will use a loop to print the site name and first line of each file to a .txt file. Note that only the first five characters are cut from the filename - this leaves off any extra letters at the end of the files that are formatted like "az544t.rwl". I do this assuming that the letter 't' is not a part of the site name.
+```
+for filename in *.rwl
+ do
+  ls "$filename" | cut -c 1-5 >> "$1"_sites.txt
+  head -n 1 "$filename" >> "$1"_sites.txt
+ done
+```
