@@ -1,7 +1,4 @@
-
-[state.sh](./state.sh)
-Just in case the .sh file I uploaded isn't visible to you, I have attached the loop inside of this link.
-
+Just in case the .sh file I uploaded isn't visible to you, I have attached the loop inside of this link. [state.sh](./state.sh)
 
 ```
 wget -r -e robots=off -A '*.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
