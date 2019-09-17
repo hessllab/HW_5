@@ -2,6 +2,9 @@
 # file of their headers
 
 # Usage: bash hw5.sh state_abbreviation_lowercase
+# Products: state_abbreviation_lowercase.txt, a file which lists the name of
+# each file for that state in the database followed by the first line of that
+# file
 
 # Download all .rwl files that do not contain "noaa"
 wget -r -q -A "$1"*.rwl -R *noaa* -e robots=off -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
