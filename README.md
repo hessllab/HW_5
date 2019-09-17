@@ -1,20 +1,49 @@
-### ITRDB Script for Any State
+First, the script pulls all files from the database containing the state abbreviation input by the user:
+```bash
+wget -r -q -A "$1"*.rwl -R *noaa* -e robots=off -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+```
+The `-R *noaa*` term excludes files whose names contain the string `noaa`, which are metadata.
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+Then, it iterates through all the downloaded files:
+```bash
+for file in *.rwl
+do
+```
+Data regarding the files are recorded in a new text file, `"$1"_sites.txt`
+First it records the filename, sans extension:
+```bash
+echo $file | cut -d "." -f 1 >> "$1"_sites.txt
+```
+Then it records the first line of the file:
+```bash
+head -n 1 $file >> "$1"_sites.txt
+```
+Once all files are recorded, the loop closes:
+```bash
+done
+```
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
-
-_Hint:_
-Usage: bash state.sh state_abbrev  
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
- 
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
-
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
-
+Example product, for Oklahoma: `ok_sites.txt`
+```
+ok
+730--- 1 ARBUCKLE MOUNTAINS DB0421   TOTAL RING WIDTH                       D421
+ok001
+NEOSHO RIVER, OKLAHOMA  POST OAK RING WIDTHS (.01MM)
+ok004
+BLUESTEM LAKE, OKLAHOMA  POST OAK RING WIDTHS (.01MM)
+ok007
+KEY    1 Keystone Lake                                       QUST               
+ok007e
+KEY    1 Keystone Lake                                       QUST               
+ok007l
+KEY    1 Keystone Lake                                       QUST               
+ok010
+OAKWOOD, OKLAHOMA  POST OAK RING WIDTHS (.01MM)
+ok013
+CANADIAN RIVER, OKLAHOMA POST OAK RING WIDTHS (.01MM)
+ok016
+LAKE EUFAULA, OKLAHOMA  POST OAK RING WIDTHS (.01MM)
+ok019
+MCCURTAIN CO. WILDERNESS, OK  POST OAK RING WIDTHS (.01MM)
+...
+```
