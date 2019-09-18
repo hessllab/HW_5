@@ -1,4 +1,4 @@
-# Script Title
+# Script To Retrieve Tree Ring data
 
 This script downloads tree ring data for specified states in the USA from the NOAA's National Centers for Environmental Information database and organizes this information in a new directory called the abbreviation of the state. To check for files that have a header, this script also creates a text file and saves the name of each files in the state with the respective first line of the file.
 
