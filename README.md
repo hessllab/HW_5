@@ -16,10 +16,9 @@ bash state.sh state_abbrev
 
 ## Product
 The script creates a new directory called the state abbreviation. 
-for example; if the state is __Wyoming__, the name of the directory is __wy__
+for example; if the state is __Wyoming__, the name of the directory created will be __wy__
 
-
-In this directory, it stores all the retrieved .rwl files for that state.
+In this directory, the script stores all the retrieved .rwl files for that state.
 
 Then the script produces a text file of site names followed by the first line (header) of the file:
 
@@ -37,9 +36,9 @@ CKMKBK 1 Cedar/Moser/Bible Knobs                             JUVI
 ```
 
 
-## Authors
+## Author
 
-* **Tobi Ore** - *Initial work* - [tobi-ore](https://github.com/tobi-ore)
+[Tobi Ore](https://github.com/tobi-ore)
 
 
 ## License
@@ -48,4 +47,4 @@ CKMKBK 1 Cedar/Moser/Bible Knobs                             JUVI
 
 ## Acknowledgments
 
-* Dr Amy Hessl
+[Dr Amy Hessl](https://github.com/hessllab)
