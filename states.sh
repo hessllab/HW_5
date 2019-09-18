@@ -1,0 +1,11 @@
+wget -r -e robots=off -A $@'.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'?.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'??.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'???.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'????.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+
+for files in *.rwl
+  do
+  echo "$files" | cut -c -5 >> $@_sites.txt
+  head -n 1 $files >> $@_sites.txt
+done
