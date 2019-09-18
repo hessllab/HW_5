@@ -1,20 +1,54 @@
-### ITRDB Script for Any State
+### Homework 5
+### Sara Schreder-Gomes
+____________
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+### Requirements
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
+1) Internet connection
+2) Installation of Git Bash
+3) Installation of wget
 
-_Hint:_
-Usage: bash state.sh state_abbrev  
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
+### Usage
+
+The user will be able to pull and summarize data from one state of tree ring data at a time using the bash script:
+
+`bash state.sh "state_abbrev"`
+
+The state abbreviation will be two letters, in lowercase. The state abbreviation becomes the variable `$1` in the script. The script also aims to reduce clutter by creating a directory (ITRDB_by_state) to hold the individual state directories. The flag `-A` accepts the criteria immediately following, while the `-R` flag excludes certain criteria. Together, it allows us to pull the .rwl files of varying characters but not the -noaa.rwl files. 
+
+```bash
+mkdir -p ITRDB_by_state/"$1"
+cd ITRDB_by_state/"$1"
+wget -r -e robots=off -A "$1"'*.rwl' -R "$1"'*-noaa.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+``` 
+
+
+
+The loop below pulls information from the downloaded files. It pulls the sitename, cuts the extension using the period as a delimiter, and takes the first line of the file and pushes it to a text file that summarizes each states data. 
+
+```bash
+for sitename in "$1"*.rwl
+do
+  echo $sitename | cut -d '.' -f 1 >> "$1"_sites.txt
+  head -n 1 $sitename >> "$1"_sites.txt
+  echo  >> "$1"_sites.txt
+done
+```
+
+### Products
+
+The output of this loop is a text file that contains the sitename and the first row in the file. The first row may contain either a header including specific locaiton information, or no header. For example, the text file for Connecticut would be:
+
+```
+ct001
+BIGELOW POND, CONNECTICUT -- EASTERN HEMLOCK                            
+
+ct002
+NF000   1800    54    49    47    49    44    47    84    89   104   153
+```
+
+### Resources
+
+All data used for this script can be found online through NOAA, at: https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+
  
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
-
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
-
