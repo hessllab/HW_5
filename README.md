@@ -22,5 +22,6 @@ for filename in *.rwl
     head -n 1 "$filename" >> "$1"_sites.txt
   done
 ```
-
+Here is an example output using `bash state.sh ak`
+![HW_5_example] (HW_5_example.jpg)
 
