@@ -16,7 +16,7 @@ bash state.sh state_abbrev
 
 ## Product
 The script creates a new directory called the state abbreviation. 
-for example; if the state is __Wyoming__, the name of the directory created will be __wy__
+for example; if the state is __West Virginia__, the name of the directory created will be __wv__
 
 In this directory, the script stores all the retrieved .rwl files for that state.
 
@@ -35,11 +35,9 @@ wv005
 CKMKBK 1 Cedar/Moser/Bible Knobs                             JUVI               
 ```
 
-
 ## Author
 
 [Tobi Ore](https://github.com/tobi-ore)
-
 
 ## License
 
