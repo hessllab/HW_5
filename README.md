@@ -1,4 +1,4 @@
-#Caleb Malay HW_5
+# Caleb Malay HW_5
 
 Creates directory to store downloaded tree ring data using `$1` as a variable for the state abbreviations. 
 ```bash
@@ -22,3 +22,5 @@ for filename in *.rwl
     head -n 1 "$filename" >> "$1"_sites.txt
   done
 ```
+
+
