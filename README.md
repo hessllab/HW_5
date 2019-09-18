@@ -15,8 +15,10 @@ wget -r -q -A "$1"*.rwl -R '*noaa*' -e robots=off -np -nd https://www1.ncdc.noaa
 Uses a `for loop` to print the file name then uses `.` as the delimeter and `-f 1` to select the first column as well as taking the first
 line of each file and sending it to a text file. Placing `"$1"` in front of the text file name allows for the desired state's abbreviation
 to be placed before `_sites.txt.`
+```bash
 for filename in *.rwl
   do
     echo "$filename" | cut -d '.' -f 1 >> "$1"_sites.txt
     head -n 1 "$filename" >> "$1"_sites.txt
   done
+```
