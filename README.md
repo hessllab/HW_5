@@ -16,7 +16,7 @@ bash state.sh state_abbrev
 
 ## Product
 The script creates a new directory called the state abbreviation. 
-for example; if the state is _Wyoming_, the name of the directory is __wy
+for example; if the state is __Wyoming__, the name of the directory is __wy__
 
 
 In this directory, it stores all the retrieved .rwl files for that state.
