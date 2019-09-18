@@ -1,20 +1,17 @@
-### ITRDB Script for Any State
+### Homework 5
 
-Problem: Now that Cynthia has her script working for WV, she wants to globalize it so that she can run it for any state with data in the ITRDB. She still wants all the same outputs, but wants them to be named for the state so that when she runs the script for multiple states, each set of files will be unique.
+In attached .sh file, and shown below, is a bash script that allows you to pull the site data for any state in the ITRDB. First, all data is pulled using wget for a given state based on it's given abbreviation. Then all .rwl files are passed into a for loop, cut using a period as the delimiter and written to a textfile. Lastly, the first line of the .rwl file is written to the textfile. 
 
-Objective: Write a bash script titled state.sh that:
-1)	Extracts all the .rwl files for a state from the ITRDB using wget.
-2)	Writes a text file named for that state (_WV_sites.txt_) that records the site names and the first line of the header of each file.  Remember, some sites don't have a header so that line might be junk - (she wanted to know which have decent headers and which don't).
+```bash
+wget -r -e robots=off -A $@'.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'?.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'??.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'???.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+wget -r -e robots=off -A $@'????.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
 
-_Hint:_
-Usage: bash state.sh state_abbrev  
-Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
- 
-Follow the following principles:
-1)	Be sure to make the paths relative so that I can reproduce the structure on my machine simply by running your code.  
-2)	In addition to a README.md explaining how the script works, you should now include a separate .sh file that can be run from command line.  
-3)	Excellent scripts will create clean directories with only those files needed at the end.  
-4)	The parsimonious the code, the better the answer. Edit your answer until only what is required is present. 
-
-#### Submit using the fork-clone-branch-commit-pull_request strategy.
-
+for files in *.rwl
+  do
+  echo "$files" | cut -d '.' -f 1 >> $@_sites.txt
+  head -n 1 $files >> $@_sites.txt
+done
+```
