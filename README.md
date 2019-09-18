@@ -7,14 +7,19 @@ This script downloads tree ring data for specified states in the USA from the NO
 To run this script `git bash` and `wget` is required
 
 ### Usage
-The state_abbrev is the unique two letter abbreviation for states in the USA
 
+Run the command below in the terminal to utilize the script.
+The state_abbrev is the unique two letter abbreviation for states in the USA
 ```
 bash state.sh state_abbrev
 ```
 
 ## Product
-The script creates a new directory called the state abbreviation. In this directory, it stores all the retrieved .rwl files for that state.
+The script creates a new directory called the state abbreviation. 
+for example; if the state is _Wyoming_, the name of the directory is _wy_
+
+
+In this directory, it stores all the retrieved .rwl files for that state.
 
 Then the script produces a text file of site names followed by the first line (header) of the file:
 
