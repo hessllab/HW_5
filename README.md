@@ -1,66 +1,35 @@
 # Script Title
 
-This script downloads tree ring data for specific states in the USA
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This script downloads tree ring data for specified states in the USA from the NOAA's National Centers for Environmental Information database and organizes this information in a new directory called the abbreviation of the state. To check for files that have a header, this script also creates a text file and saves the name of each files in the state with the respective first line of the file.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+To run this script `git bash` and `wget` is required
+
+### Usage
+The state_abbrev is the unique two letter abbreviation for states in the USA
 
 ```
-Give examples
+bash state.sh state_abbrev
 ```
 
-### Installing
+## Product
+The script creates a new directory called the state abbreviation. In this directory, it stores all the retrieved .rwl files for that state.
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Then the script produces a text file of site names followed by the first line (header) of the file:
 
 ```
-until finished
+wv001
+020011  1796   107   100   107   131                                    
+wv002
+065031  1793   127   115   105   152   159   231   159                  
+wv003
+067011  1876   331   225   550   437
+wv004
+NERI   1 New River Gorge                                     PIVI               
+wv005
+CKMKBK 1 Cedar/Moser/Bible Knobs                             JUVI               
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 
 ## Authors
@@ -70,7 +39,7 @@ Add additional notes about how to deploy this on a live system
 
 ## License
 
-This project is licensed under the MIT License
+[This project is licensed under the MIT License](https://choosealicense.com/licenses/mit/)
 
 ## Acknowledgments
 
