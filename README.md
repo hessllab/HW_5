@@ -23,5 +23,5 @@ for filename in *.rwl
   done
 ```
 Here is an example output using `bash state.sh ak`
-![HW_5_example] (HW_5_example.jpg)
+![HW_5_example](HW_5_example.jpg)
 
