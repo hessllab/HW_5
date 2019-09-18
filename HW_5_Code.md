@@ -51,3 +51,7 @@ PIPE   1 Pipestem Resort State Park                          TSCA
 wv007
 CAGO   1 Cabwaylingo State Forest                            TSCA      
 ```
+## Usage
+Usage: bash states.sh wv (or any other state(s))
+The script submitted along with this assignment can be bashed for any state or multiple states at a time.
+Each state will be placed into a respective directory.
