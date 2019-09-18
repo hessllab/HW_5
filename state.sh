@@ -2,9 +2,7 @@
 # Usage: bash state.sh state_abbrev
 # Products: 'state_abbrev'_sites.txt, 'state_abbrev'/ directory containing rwl files for that state
 
-mkdir "$1" && cd "$1"       #creates and changes the working directory to a new directory called 'state_abbrev'
-
-#retrieve .rwl files for specified state from the database excluding files with noaa suffix in their name
+mkdir "$1" && cd "$1"  
 wget -r -e robots=off -A "$1"*.rwl -np -nd -q -R "*noaa.rwl" https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
 
 for sitename in *.rwl 
