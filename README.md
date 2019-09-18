@@ -2,8 +2,8 @@
 
 Creates directory to store downloaded tree ring data using `$1` as a variable for the state abbreviations. 
 ```bash
-mkdir "$1"_TreeRingData
-cd "$1"_TreeRingData
+mkdir "$1"
+cd "$1"
 ```
 
 Uses wget to download state tree ring data ending with `.rwl` and uses `-R` to exclude downloading files that contain `noaa` in the name.
