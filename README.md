@@ -2,11 +2,11 @@
 
 This script downloads tree ring data for specified states in the USA from the NOAA's National Centers for Environmental Information database and organizes this information in a new directory called the abbreviation of the state. To check for files that have a header, this script also creates a text file and saves the name of each files in the state with the respective first line of the file.
 
-### Prerequisites
+## Prerequisites
 
 To run this script `git bash` and `wget` is required
 
-### Usage
+## Usage
 
 Run the command below in the terminal to utilize the script.
 The state_abbrev is the unique two letter abbreviation for states in the USA
