@@ -1,8 +1,6 @@
-wget -r -e robots=off -A $@'.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
-wget -r -e robots=off -A $@'?.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
-wget -r -e robots=off -A $@'??.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
-wget -r -e robots=off -A $@'???.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
-wget -r -e robots=off -A $@'????.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+#states.sh : downloads all the .rwl files (no metadata) for...
+#usage:
+wget -r -e robots=off -A "$@"'*.rwl' -R *noaa* -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
 
 for files in *.rwl
   do
