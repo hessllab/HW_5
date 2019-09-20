@@ -15,7 +15,7 @@ wget -P $1 -nd -r -e robots=off -A $1'*.rwl' -R '*-noaa.rwl' -np -q https://www1
 cd $1
 for filename in *.rwl
 do
-echo $filename | cut -d . -f 1 >> "$1"_sites.txt
-head -1 $filename >> "$1"_sites.txt
+ echo $filename | cut -d . -f 1 >> "$1"_sites.txt
+ head -1 $filename >> "$1"_sites.txt
 done
 
