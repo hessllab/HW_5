@@ -1,4 +1,5 @@
-# README
+# state.sh
+## Download All .rwl Files for a State from NOAA NCEI
 
 The attached script "state.sh" can be used to download Tree Ring Data from NOAA's Database. The users only needs to input the initials of the State that she wants to download. 
 
