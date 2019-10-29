@@ -4,5 +4,5 @@ wget -r -e robots=off -A "$1"*.rwl -np -nd https://www1.ncdc.noaa.gov/pub/data/p
 
 for state in *.rwl
 do
-	ls $state | find data -name '*s.txt' | grep -v -noaa | head -n 1 $state >> output.txt
+ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> $1.txt
 done
