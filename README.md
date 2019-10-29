@@ -10,11 +10,13 @@ bash state.sh
 ```
 This tells the computer to follow the commands that are within a file called state.sh. The commands are written as:
 ```
-wget -r -e robots=off -A '*.rwl' -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
+mkdir "$1"output
+cd "$1"output
+wget -r -e robots=off -A "$1"*.rwl -np -nd https://www1.ncdc.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/
 
 for state in *.rwl
 do
-ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> Output.txt
+ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> $1.txt
 done
 ```
-The commands within the file are a wget command that downloads all of the files from the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
+The commands within the file create and enter a new working directory. The wget command downloads all of the files from the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
