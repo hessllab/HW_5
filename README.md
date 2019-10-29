@@ -1,4 +1,4 @@
-###ITRDB Script for Any State
+### ITRDB Script for Any State
 
 Objective: Write a bash script titled state.sh that:
 1)	Extracts all the .rwl files for a state from the ITRDB using wget.
@@ -17,4 +17,4 @@ do
 ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> Output.txt
 done
 ```
-The commands within the file are a wget command that downloads all of the files from the NOAA website and places them inside the woring folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
+The commands within the file are a wget command that downloads all of the files from the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
