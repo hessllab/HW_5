@@ -20,3 +20,4 @@ ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> $1.txt
 done
 ```
 The commands within the file create and enter a new working directory. The wget command downloads all of the files from the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
+.
