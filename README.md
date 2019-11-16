@@ -6,7 +6,7 @@ Objective: Write a bash script titled state.sh that:
 
 To run the command within the state.sh file we use:
 ```
-bash state.sh
+bash state.sh state_abbrev #if you do not include a state, it will download the entire USA data.
 ```
 This tells the computer to follow the commands that are within a file called state.sh. The commands are written as:
 ```
@@ -19,5 +19,5 @@ do
 ls $state | grep -v "noaa" *.rwl | head -n 1 $state >> $1.txt
 done
 ```
-The commands within the file create and enter a new working directory. The wget command downloads all of the files from the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
+The commands within the file create and enter a new working directory. The wget command downloads all of the files from a state in the NOAA website and places them inside the working folder. It then loops the .rwl files to list them, remove all files that include '-noaa', and isolates the header and first line of text for each of the data locations around the country. It then deposits the results in a separate textfile called 'output.'
 .
